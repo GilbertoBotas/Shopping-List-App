@@ -48,7 +48,7 @@ data class ShoppingItem(
 
 @Composable
 fun MyShoppingListApp() {
-    var sItems by remember { mutableStateOf(listOf<ShoppingItem>(ShoppingItem(1,"Test",1, true))) }
+    var sItems by remember { mutableStateOf(listOf<ShoppingItem>()) }
     var showDialog by remember { mutableStateOf(false) }
     var itemName by remember { mutableStateOf("") }
     var itemQuantity by remember { mutableStateOf("") }
