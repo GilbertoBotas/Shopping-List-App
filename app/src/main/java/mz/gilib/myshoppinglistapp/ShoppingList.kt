@@ -135,7 +135,11 @@ fun MyShoppingListApp() {
                     )
                     OutlinedTextField(
                         value = itemQuantity,
-                        onValueChange = { itemQuantity = it },
+                        onValueChange = {
+                            val number = it.toIntOrNull()
+                            if (number != null && number >= 0)
+                                itemQuantity = it
+                        },
                         singleLine = true,
                         label = { Text(text = "Item Quantity") },
                         modifier = Modifier.fillMaxWidth(),
@@ -207,7 +211,11 @@ fun ShoppingItemEditor(
             )
             BasicTextField(
                 value = editedQuantity,
-                onValueChange = { editedQuantity = it},
+                onValueChange = {
+                    val number = it.toIntOrNull()
+                    if (number != null && number >= 0)
+                        editedQuantity = it
+                },
                 singleLine = true,
                 modifier = Modifier
                     .wrapContentSize()
